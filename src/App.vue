@@ -1,18 +1,18 @@
 <script setup>
 import { RouterView } from "vue-router";
-import {ref, watch} from "vue"
+import { ref, watch } from "vue"
 const active = ref(0);
 const onChange = (index) => {
   //active.value=index
 };
 
-watch(active,(n,o)=>{
+watch(active, (n, o) => {
   console.log(n)
 })
 </script>
 
 <template>
-  <div class="top">首页</div>
+  <div class="h-[44px]">首页</div>
   <div class="content">
     <div class="top">top</div>
     <div class="top">top</div>
@@ -63,23 +63,27 @@ watch(active,(n,o)=>{
   display: flex;
   align-items: center;
 }
+
 .content {
   height: calc(100vh-50px);
   padding-bottom: 52px;
   background-color: blue;
 }
+
 .bottom {
   position: fixed;
   bottom: 0px;
   width: 100%;
   background-color: white;
 }
+
 .bottom-content {
   display: flex;
   height: 44px;
   align-items: center;
   justify-content: center;
 }
+
 .bottom-item {
   flex-grow: 1;
   display: flex;

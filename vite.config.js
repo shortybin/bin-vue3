@@ -5,6 +5,8 @@ import vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite';
 import { VantResolver } from 'unplugin-vue-components/resolvers';
 import postcsspxtoviewport from 'postcss-px-to-viewport-8-plugin'
+import tailwindcss from 'tailwindcss'
+import autoprefixer from 'autoprefixer'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -22,6 +24,8 @@ export default defineConfig({
   css:{
     postcss:{
       plugins:[
+        tailwindcss(),
+        autoprefixer(),
         postcsspxtoviewport({
           unitToConvert: 'px', // 需要转换的单位，默认为"px"
           viewportWidth: 375, // 设计稿的视口宽度
@@ -38,7 +42,8 @@ export default defineConfig({
           landscape: false, // 是否添加根据 landscapeWidth 生成的媒体查询条件 @media (orientation: landscape)
           landscapeUnit: 'vw', // 横屏时使用的单位
           landscapeWidth: 1920 // 横屏时使用的视口宽度
-        })
+        }),
+        
       ]
     }
   }
