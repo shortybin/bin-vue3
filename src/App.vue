@@ -12,7 +12,9 @@ watch(active, (n, o) => {
 </script>
 
 <template>
-  <div class="h-[44px]">首页</div>
+  <div class="h-[44px] flex items-center">
+    <p class="grow text-center">首页</p>
+  </div>
   <div class="content">
     <div class="top">top</div>
     <div class="top">top</div>
