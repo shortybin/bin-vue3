@@ -1,21 +1,52 @@
 <script setup>
 import { RouterView } from "vue-router";
-import { ref, watch } from "vue"
+import { ref, watch } from "vue";
 const active = ref(0);
+const show = ref(true);
+const search= ref(null)
+
 const onChange = (index) => {
   //active.value=index
 };
 
 watch(active, (n, o) => {
-  console.log(n)
-})
+  console.log(n);
+});
+
+const touchStart=(event)=>{
+  if (!search.value.$el.contains(event.target)) {
+    // 点击事件发生在组件外部，让组件失去焦点
+    search.value.blur();
+    show.value=false
+  }
+}
+
+const searchChange=()=>{
+  show.value=true
+}
+
 </script>
 
 <template>
-  <div class="h-[44px] flex items-center">
+  <div class="h-[44px] flex items-center" >
     <p class="grow text-center">首页</p>
   </div>
-  <div class="content">
+  <div class="content" @touchstart="touchStart">
+    <div class="flex flex-col" >
+      <van-field placeholder="请输入搜索内容" @update:model-value="searchChange" ref="search"/>
+      <ul
+        class="absolute bg-red-500 w-[100%] mt-[41.99px] max-h-[100px] overflow-y-auto"
+        v-if="show"
+      >
+        <li>111</li>
+        <li>111</li>
+        <li>111</li>
+        <li>111</li>
+        <li>111</li>
+        <li>111</li>
+        <li>111</li>
+      </ul>
+    </div>
     <div class="top">top</div>
     <div class="top">top</div>
     <div class="top">top</div>
@@ -50,7 +81,6 @@ watch(active, (n, o) => {
     </div>
   </div> -->
 
-
   <van-tabbar @change="onChange" v-model="active">
     <van-tabbar-item icon="home-o">标签</van-tabbar-item>
     <van-tabbar-item icon="search">标签</van-tabbar-item>
@@ -69,7 +99,6 @@ watch(active, (n, o) => {
 .content {
   height: calc(100vh-50px);
   padding-bottom: 52px;
-  background-color: blue;
 }
 
 .bottom {
