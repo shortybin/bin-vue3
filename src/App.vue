@@ -15,9 +15,8 @@ watch(active, (n, o) => {
 });
 
 const touchStart = (event) => {
-  //searchSelect.value.fatherTouch(event)
+  searchSelect.value.fatherTouch(event);
 };
-
 </script>
 
 <template>
@@ -25,9 +24,6 @@ const touchStart = (event) => {
     <p class="grow text-center">首页</p>
   </div>
   <div class="content" @touchstart="touchStart">
-    <van-field
-      placeholder="请输入搜索内容"
-    />
     <SearchSelect ref="searchSelect"></SearchSelect>
     <div class="top">top</div>
     <div class="top">top</div>
