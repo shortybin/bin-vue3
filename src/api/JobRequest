@@ -1,0 +1,9 @@
+import BaseRequest from "./BaseRequest";
+
+class JobRequest extends BaseRequest{
+    getBannerList() {
+		return this.get(`/v2/positions`);
+	}
+}
+
+export default new JobRequest()

@@ -1,0 +1,33 @@
+import axios from 'axios';
+
+class BaseRequest{
+    constructor() {
+		this.$http = $http;
+	}
+
+	get(url, config = {}) {
+		return this.$http.get(url, config);
+	}
+
+	post(url, data = undefined, config = {}) {
+		return this.$http.post(url, data, config);
+	}
+
+	put(url, data = undefined, config = {}) {
+		return this.$http.put(url, data, config);
+	}
+
+	delete(url, config = {}) {
+		return this.$http.delete(url, config);
+	}
+}
+
+const $http = axios.create({
+	baseURL: '/api',
+	headers: {
+		'Content-Type': 'application/json'
+	},
+	timeout: 10000
+});
+
+export default BaseRequest;

@@ -2,6 +2,7 @@
 import { RouterView } from "vue-router";
 import { ref, watch } from "vue";
 import SearchSelect from "@/components/SearchSelect/index.vue";
+import JobRequest from "./api/JobRequest"
 
 const active = ref(0);
 const searchSelect = ref(null);
@@ -16,7 +17,12 @@ watch(active, (n, o) => {
 
 const touchStart = (event) => {
   searchSelect.value.fatherTouch(event);
+  JobRequest.getBannerList()
 };
+
+console.log(import.meta.env.VITE_BASIC_URL);
+
+
 </script>
 
 <template>
