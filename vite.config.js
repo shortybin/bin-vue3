@@ -10,6 +10,9 @@ import autoprefixer from 'autoprefixer'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  server: {
+    host: true
+  },
   plugins: [
     vue(),
     Components({
@@ -21,9 +24,9 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  css:{
-    postcss:{
-      plugins:[
+  css: {
+    postcss: {
+      plugins: [
         tailwindcss(),
         autoprefixer(),
         postcsspxtoviewport({
@@ -43,7 +46,7 @@ export default defineConfig({
           landscapeUnit: 'vw', // 横屏时使用的单位
           landscapeWidth: 1920 // 横屏时使用的视口宽度
         }),
-        
+
       ]
     }
   }
