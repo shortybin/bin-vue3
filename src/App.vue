@@ -2,10 +2,22 @@
 import { RouterView } from "vue-router";
 import { ref, watch } from "vue";
 import SearchSelect from "@/components/SearchSelect/index.vue";
-import JobRequest from "./api/JobRequest"
+import JobRequest from "./api/JobRequest";
 
 const active = ref(0);
 const searchSelect = ref(null);
+const searchList = [
+  "1111",
+  "2222",
+  "3333",
+  "444",
+  "555",
+  "666",
+  "777",
+  "88",
+  "99",
+  "00",
+];
 
 const onChange = (index) => {
   //active.value=index
@@ -17,12 +29,10 @@ watch(active, (n, o) => {
 
 const touchStart = (event) => {
   searchSelect.value.fatherTouch(event);
-  JobRequest.getBannerList()
+  JobRequest.getBannerList();
 };
 
 console.log(import.meta.env.VITE_BASIC_URL);
-
-
 </script>
 
 <template>
@@ -30,7 +40,7 @@ console.log(import.meta.env.VITE_BASIC_URL);
     <p class="grow text-center">首页</p>
   </div>
   <div class="content" @touchstart="touchStart">
-    <SearchSelect ref="searchSelect"></SearchSelect>
+    <SearchSelect ref="searchSelect" :list="searchList"></SearchSelect>
     <div class="top">top</div>
     <div class="top">top</div>
     <div class="top">top</div>
