@@ -6,7 +6,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      redirect: '/'
+      component:()=>import('@/components/SearchSelect/index.vue')
     }
   ]
 })
